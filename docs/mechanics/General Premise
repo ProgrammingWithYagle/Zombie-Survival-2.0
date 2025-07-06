@@ -1,0 +1,7 @@
+General Functionality and Purpose of Game:
+
+- Have a player that could be moved around through keyboard control (Could be set through settings)
+- Have a big collective shop area, where there are multiple shops for buying various items
+- Have a settings menu for setting many options within game
+- There are various enemies in the game that would try to attack the player (which are mainly zombies)
+- The player has a health bar, in which when the value of it becomes 0, the game would end, the player would die, and it would be game over
