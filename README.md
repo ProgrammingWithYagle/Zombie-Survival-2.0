@@ -12,3 +12,5 @@ Code: Could be coded manually or with AI (AI is allowed)
 Language: C++ mainly
 
 Library: SFML
+
+This repository follows the standard C++ layout with source files in `src/` and header files in `include/`.
