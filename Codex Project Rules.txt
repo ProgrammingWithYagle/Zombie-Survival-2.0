@@ -1,0 +1,47 @@
+Language Used: C++
+Library Used: SFML Library
+Art: 2D Pixel
+
+General Functionality and Purpose of Game:
+- Have a player that could be moved around through keyboard control (Could be set through settings)
+- Have a big collective shop area, where there are multiple shops for buying various items
+- Have a settings menu for setting many options within game
+- There are various enemies in the game that would try to attack the player (which are mainly zombies)
+- The player has a health bar, in which when the value of it becomes 0, the game would end, the player would die, and it would be game over
+
+Main Menu:
+- A button for accessing settings
+- A button for going to play
+- A button for exiting
+
+Sub Menu (After hitting Play Button in Main Menu):
+- Two main buttons for single and multi player options
+
+
+World Generation:
+- The player could select the world size, depending on the pixel amount 
+(there could be five size, which are the following:
+1. tiny - 1024 pixels
+2. small - 2048 pixels
+3. medium - 4096 pixels
+4. large - 8192 pixels
+5. massive - 16384 pixels)
+
+- Each world is random and unique from one another (the location of major establishments are different, and each pixel would be randomly generated each time)
+
+World Requirements:
+Each world should have at least the following items:
+- Cities where other survivors are located (amount depends on world size, for tiny only 1)
+- Multiple scattered settlement around the map (amount depends on world size, for tiny at least 3)
+
+
+
+
+Shop Community:
+- There are several sections within the shop community, including shops for consumables, equipment, weapons and food
+
+
+
+Inspirations:
+- Starve.io, Devast.io
+
