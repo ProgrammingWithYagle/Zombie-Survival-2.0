@@ -39,3 +39,4 @@ After building, the executable will be placed inside the `build` directory. Run 
 
 Please see [AGENTS.md](AGENTS.md) for coding conventions and contribution guidelines.
 
+This repository follows the standard C++ layout with source files in `src/` and header files in `include/`.
