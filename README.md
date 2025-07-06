@@ -9,6 +9,7 @@ Here is the general premise of the project:
 - **Code:** Can be written manually or with AI assistance
 - **Language:** Mainly C++
 - **Library:** SFML
+- **Preferrable IDE** Visual Studio
 
 ## Prerequisites
 
