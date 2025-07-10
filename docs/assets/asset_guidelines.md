@@ -5,6 +5,7 @@ This document outlines best practices for preparing sprites and tiles for Zombie
 ## Sprite Tile Size
 
 - Use **64×64 pixel** tiles for most sprites.
+- Spread Sheet Size: 512 * 512 pixels
 - Keep every frame or object within a 64×64 pixel box.
 
 ## Spritesheet Layout
