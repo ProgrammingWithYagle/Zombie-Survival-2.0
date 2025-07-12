@@ -35,6 +35,7 @@ After building, the executable will be placed inside the `build` directory. Run 
 ```bash
 ./ZombieSurvival
 ```
+This will launch a window displaying the sample zombie sprite.
 
 ## Coding Conventions
 

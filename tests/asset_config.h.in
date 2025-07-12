@@ -1,0 +1,2 @@
+#pragma once
+#define ASSET_PATH "@ASSET_PATH@"
