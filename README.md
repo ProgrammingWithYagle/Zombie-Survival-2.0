@@ -30,12 +30,12 @@ cmake --build .
 
 ## Running
 
-After building, the executable will be placed inside the `build` directory. Run it with:
+After building, the executable will be placed inside the `build` directory. Run it from the **project root** so the assets folder can be located:
 
 ```bash
 ./ZombieSurvival
 ```
-This will launch a window displaying the sample zombie sprite.
+This will launch a window displaying the sample zombie sprite scaled to 64x64 pixels and centered in the window.
 
 ## Coding Conventions
 
