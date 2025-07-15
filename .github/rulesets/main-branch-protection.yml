@@ -1,0 +1,16 @@
+version: 1
+rulesets:
+  - name: "main branch protection"
+    enforcement: active
+    conditions:
+      ref_name:
+        include:
+          - "refs/heads/main"
+    rules:
+      - type: required_status_checks
+        parameters:
+          required_checks:
+            - context: ci
+      - type: pull_request
+        parameters:
+          required_approving_review_count: 1
