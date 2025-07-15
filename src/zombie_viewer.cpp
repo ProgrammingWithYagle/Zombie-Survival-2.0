@@ -10,6 +10,15 @@ void run_zombie_viewer(const std::string& sprite_path) {
         return;
     }
     sf::Sprite sprite(texture);
+    // Scale the sprite so that it fits within a 64x64 pixel box
+    const float target_size = 64.0f;
+    sf::Vector2u tex_size = texture.getSize();
+    sprite.setScale(target_size / tex_size.x, target_size / tex_size.y);
+
+    // Center the sprite in the window
+    sprite.setPosition(
+        (window.getSize().x - target_size) / 2.0f,
+        (window.getSize().y - target_size) / 2.0f);
 
     while (window.isOpen()) {
         sf::Event event;
