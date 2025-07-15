@@ -44,3 +44,13 @@ Please see [AGENTS.md](AGENTS.md) for coding conventions and contribution guidel
 This repository follows the standard C++ layout with source files in `src/` and header files in `include/`.
 
 For sprite size and spritesheet layout recommendations, see [docs/asset_guidelines.md](docs/assets/asset_guidelines.md).
+
+## Branch Protection
+
+This repository includes a branch protection ruleset located at
+`.github/rulesets/main-branch-protection.yml`. The ruleset enforces pull
+requests and requires the CI workflow to pass before changes can be merged into
+the `main` branch.
+
+To enable these rules in your fork, import the YAML file into the **Rulesets**
+section of your repository settings on GitHub.
