@@ -15,3 +15,7 @@ target_include_directories(sprite_scale_test PUBLIC ${PROJECT_SOURCE_DIR}/includ
 target_link_libraries(sprite_scale_test PRIVATE sfml-graphics)
 
 add_test(NAME sprite_scale COMMAND sprite_scale_test)
+
+# Simple placeholder test that verifies the test framework
+add_executable(example_test example_test.cpp)
+add_test(NAME example_test COMMAND example_test)

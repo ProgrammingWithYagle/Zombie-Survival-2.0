@@ -28,6 +28,14 @@ cmake ..
 cmake --build .
 ```
 
+## Testing
+
+After the project is built, the automated tests can be executed with CTest:
+
+```bash
+ctest --test-dir build
+```
+
 ## Running
 
 After building, the executable will be placed inside the `build` directory. Run it from the **project root** so the assets folder can be located:
