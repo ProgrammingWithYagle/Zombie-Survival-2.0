@@ -1,6 +1,9 @@
 # World Generation
 
-- The player could select the world size, depending on the pixel amount 
+- The player could select the world size, depending on the pixel amount
+
+**NOTE**: The pixels here are logical / art pixels within a drawing (not the actual physical pixels displayed on a monitor), a single drawn pixel could be several physical pixels combined (this doesn't signify resolution)
+
 (there could be five size, which are the following:
 1. tiny - 1024 pixels
 2. small - 2048 pixels
