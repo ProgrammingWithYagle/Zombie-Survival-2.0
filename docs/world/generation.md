@@ -1,4 +1,4 @@
-World Generation:
+# World Generation
 
 - The player could select the world size, depending on the pixel amount 
 (there could be five size, which are the following:
