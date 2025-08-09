@@ -22,16 +22,17 @@ This document provides basic project conventions for all contributors.
 1. Add new `.cpp` files to `src/` and corresponding headers to `include/`.
 2. Place new images or audio under `assets/`.
 3. Document significant changes in `docs/`.
-4. Add tests under `tests/` when introducing new features.
-5. Build using CMake:
+4. Run `make codemap` to update `docs/code_map.md` after modifying `docs/`, `include/`, or `src/`.
+5. Add tests under `tests/` when introducing new features.
+6. Build using CMake:
    ```bash
    cmake -S . -B build
    cmake --build build
    ```
-6. Run tests after building:
+7. Run tests after building:
    ```bash
    ctest --test-dir build
    ```
-7. Ensure all tests pass before submitting a pull request.
+8. Ensure all tests pass before submitting a pull request.
 
 These guidelines apply to both AI and human contributions.
