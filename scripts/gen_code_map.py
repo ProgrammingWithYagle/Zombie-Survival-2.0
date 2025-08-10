@@ -10,26 +10,24 @@ overview of the project structure.  The output includes:
 
 The result is written to stdout so it can be redirected to docs/code_map.md.
 """
-import os, re, sys
+import os, re, sys, subprocess
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO_SLUG = "ProgrammingWithYagle/Zombie-Survival-2.0"
 
-# Prefer CI-provided SHA; fall back to local git
-def current_sha():
-    sha = os.environ.get("GITHUB_SHA")
-    if sha:
-        return sha.strip()
-    try:
-        import subprocess
-        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip()
-    except Exception:
-        return "main"  # last resort; less stable permalink
+def file_last_sha(rel_path: str) -> str:
+    """Get the last commit SHA that touched this file."""
+    return subprocess.check_output(
+        ["git", "log", "-n", "1", "--format=%H", "--", rel_path],
+        cwd=ROOT
+    ).decode().strip()
 
 def permalink(sha, rel_path, start, end=None):
+    quoted = quote(rel_path, safe="/")  # encode spaces, parentheses, etc.
     anchor = f"#L{start}" if end is None or end == start else f"#L{start}-L{end}"
-    return f"https://github.com/{REPO_SLUG}/blob/{sha}/{rel_path}{anchor}"
+    return f"https://github.com/{REPO_SLUG}/blob/{sha}/{quoted}{anchor}"
 
 SCAN_DIRS = ["docs", "include", "src"]
 CODE_EXTS = {".c",".cc",".cpp",".h",".hpp",".hh",".ipp",".inl",".mm",".m",".rs",".py",".java",".js",".ts",".tsx",".cs",".go",".lua"}
@@ -126,7 +124,6 @@ def build_tree(files):
     return lines
 
 def main():
-    sha = current_sha()
     files = collect()
     print("# Code Map (auto-generated)\n")
     print("**Do not edit by hand. Run `make codemap` to regenerate.**\n")
@@ -144,7 +141,7 @@ def main():
         print(f"### `{rel}`")
         print(f"{summary}")
         if s:
-            link = permalink(sha, rel, s, e)
+            link = permalink(file_last_sha(rel), rel, s, e)
             # quote the first line of the block
             block_first = text.splitlines()[s-1].strip()
             print(f"> `{block_first}`  \n> {link}")
@@ -158,7 +155,7 @@ def main():
             m = include_re.match(line)
             if m:
                 target = m.group(1)
-                link = permalink(sha, rel, i)
+                link = permalink(file_last_sha(rel), rel, i)
                 print(f"- `{rel}` ➜ `{target}`  \n  > `{line.strip()}`  \n  > {link}")
     print()
 
@@ -169,7 +166,7 @@ def main():
         for i, line in enumerate(text.splitlines(), start=1):
             if todo_re.search(line):
                 any_todo = True
-                link = permalink(sha, rel, i)
+                link = permalink(file_last_sha(rel), rel, i)
                 print(f"- `{rel}:{i}`  \n  > `{line.strip()}`  \n  > {link}")
     if not any_todo:
         print("_No TODO/FIXME found._")
