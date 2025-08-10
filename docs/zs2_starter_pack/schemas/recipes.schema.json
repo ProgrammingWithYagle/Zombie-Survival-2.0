@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/recipes.schema.json",
+  "title": "Recipe",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "requiresWorkbench": {
+      "type": "boolean",
+      "default": false
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "itemId",
+          "count"
+        ]
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "itemId",
+        "count"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "inputs",
+    "output"
+  ]
+}
