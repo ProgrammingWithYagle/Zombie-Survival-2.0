@@ -53,6 +53,10 @@ This repository follows the standard C++ layout with source files in `src/` and 
 
 For sprite size and spritesheet layout recommendations, see [docs/asset_guidelines.md](docs/assets/asset_guidelines.md).
 
+## Code Map
+Run `make codemap` to regenerate `docs/code_map.md` after changes to `docs/`, `include/`, or `src/`. Pull requests touching these paths must include an updated code map.
+
+
 ## Branch Protection
 
 This repository includes a branch protection ruleset located at

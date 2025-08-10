@@ -1,0 +1,24 @@
+name: Code Map
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "include/**"
+      - "src/**"
+      - "scripts/gen_code_map.py"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Generate code map
+        run: |
+          python scripts/gen_code_map.py > docs/code_map.md
+      - name: Require updated code_map.md
+        run: |
+          git diff --exit-code docs/code_map.md || (echo "::error::Run \`make codemap\` and commit the updated docs/code_map.md"; exit 1)
